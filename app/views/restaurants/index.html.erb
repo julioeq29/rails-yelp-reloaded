@@ -1,9 +1,18 @@
-<h1>List of all restaurants</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+      <h1>List of all restaurants</h1>
+      <%= link_to "Add a new restaurant", new_restaurant_path, class: 'btn btn-primary' %>
+      <ul class="list-group">
+        <% @restaurants.each do |restaurant| %>
+          <li class="list-group-item">
+            <p><%= link_to restaurant.name, restaurant_path(restaurant) %></p>
+            <p><%= restaurant.category %></p>
+            <p><%= restaurant.phone_number %></p>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
 
-<ul>
-  <% @restaurants.each do |restaurant| %>
-    <p><%= link_to restaurant.name, restaurant_path(restaurant) %></p>
-    <p><%= restaurant.category %></p>
-    <p><%= restaurant.phone_number %></p>
-  <% end %>
-</ul>
